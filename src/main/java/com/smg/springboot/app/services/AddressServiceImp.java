@@ -2,17 +2,18 @@ package com.smg.springboot.app.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smg.springboot.app.domain.Address;
 import com.smg.springboot.app.repository.AddressRepository;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class AddressServiceImp implements IAddressService{
 	
-	@Autowired
-	private AddressRepository addressRepository;
+	private final AddressRepository addressRepository;
 
 	@Override
 	public List<Address> findAll() {

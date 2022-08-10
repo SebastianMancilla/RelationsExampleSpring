@@ -2,17 +2,18 @@ package com.smg.springboot.app.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smg.springboot.app.domain.Library;
 import com.smg.springboot.app.repository.LibraryRepository;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class LibraryServiceImp implements ILibraryService{
 	
-	@Autowired
-	private LibraryRepository libraryRepository;
+	private final LibraryRepository libraryRepository;
 
 	@Override
 	public List<Library> findAll() {

@@ -1,7 +1,7 @@
 package com.smg.springboot.app.controller;
 
 
-import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +18,19 @@ public class RestController4RestTemplate {
 	@RequestMapping(path = "/template/json")
 	public String getProducto() {
 		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-		HttpEntity<String> entity = new HttpEntity<String>(headers);
+		headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+		HttpEntity<String> entity = new HttpEntity<>(headers);
 		
 		return restTemplate.exchange("https://jsonplaceholder.typicode.com/posts", HttpMethod.GET,entity ,String.class).getBody();
+	}
+	
+	@RequestMapping(path = "/template/address")
+	public String getAddress() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		
+		return restTemplate.exchange("http://localhost:8080/address/all", HttpMethod.GET,entity ,String.class).getBody();
 	}
 	
 

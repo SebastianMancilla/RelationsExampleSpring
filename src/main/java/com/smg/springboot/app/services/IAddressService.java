@@ -7,15 +7,17 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface IAddressService {
-	public List<Address> findAll();
-	
-	public Address findById(Long id);
-	
-	public Address save(Address address);
-	
-	public void delete(Long id);
+    List<Address> findAll();
 
-	public Page<Address> findAllP(Pageable pageable);
+    Address findById(Long id);
 
-	public Page<Address> findByActivate(Pageable pageable,boolean bool);
+    Address save(Address address);
+
+    List<Address> saveAll(List<Address> addresses);
+
+    void delete(Long id);
+
+    Page<Address> findAllP(Pageable pageable);
+
+    Page<Address> findByActivate(Pageable pageable, boolean bool);
 }

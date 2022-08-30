@@ -33,6 +33,11 @@ public class AddressServiceImp implements IAddressService{
 	}
 
 	@Override
+	public List<Address> saveAll(List<Address> addresses) {
+		return (List<Address>) addressRepository.saveAll(addresses);
+	}
+
+	@Override
 	public void delete(Long id) {
 		addressRepository.deleteById(id);
 		

@@ -13,5 +13,6 @@ import java.util.List;
 @Repository
 public interface AddressRepository extends PagingAndSortingRepository<Address, Long> {
     List<Address> findAll();
+
     Page<Address> findByActivate(Pageable pageable, boolean bool);
 }
